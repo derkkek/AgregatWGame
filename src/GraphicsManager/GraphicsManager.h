@@ -13,6 +13,7 @@ namespace Agregat
 		void Init();
 		void Draw();
 		bool ShouldWindowClosed();
+		void Shutdown();
 
 	private:
 		Engine& engine;

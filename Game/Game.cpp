@@ -10,5 +10,6 @@ int main(int argc, const char* argv[]) {
             std::cout << "a";
         }
         });
+    engine.Shutdown();
     return 0;
 }

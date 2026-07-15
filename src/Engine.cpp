@@ -4,7 +4,7 @@
 namespace Agregat
 {
 	Engine::Engine()
-		:graphics(*this), input(*this)
+		:graphics(*this), input(*this), sound(*this)
 	{
 		Init();
 	}
@@ -16,6 +16,7 @@ namespace Agregat
 	void Engine::Init()
 	{
 		graphics.Init();
+		sound.Init();
 	}
 
 	void Engine::RunGameLoop(const UpdateCallback& callback)
@@ -26,5 +27,10 @@ namespace Agregat
 			callback();
 			graphics.Draw();
 		}
+	}
+	void Engine::Shutdown()
+	{
+		sound.Shutdown();
+		graphics.Shutdown();
 	}
 }

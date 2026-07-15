@@ -21,13 +21,13 @@ FetchContent_Declare(
     )
 FetchContent_MakeAvailable( spdlog )
 
-add_library(Agregat-42 STATIC src/Engine.cpp "src/GraphicsManager/GraphicsManager.cpp" "src/InputManager/InputManager.cpp")
+add_library(Agregat-42 STATIC src/Engine.cpp "src/GraphicsManager/GraphicsManager.cpp" "src/InputManager/InputManager.cpp" "src/ResourceManager/ResourceManager.cpp" "src/SoundManager/SoundManager.cpp")
 set_target_properties( Agregat-42 PROPERTIES CXX_STANDARD 20 )
 
 target_include_directories(Agregat-42 PUBLIC src)
 
 #make it private to disallow users to include raylib to their games but this also makes .h files cannot include raylib.
-target_link_libraries(Agregat-42 PRIVATE raylib)
+target_link_libraries(Agregat-42 PUBLIC raylib)
 target_link_libraries( Agregat-42 PRIVATE spdlog::spdlog )
 
 add_executable(BoxOvertop Game/game.cpp)
@@ -37,3 +37,5 @@ target_link_libraries(BoxOvertop PRIVATE Agregat-42)
 if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
     set(CMAKE_BUILD_TYPE Release CACHE STRING "" FORCE)
 endif()
+
+add_custom_target( run_helloworld helloworld USES_TERMINAL WORKING_DIRECTORY ${CMAKE_SOURCE_DIR} )
