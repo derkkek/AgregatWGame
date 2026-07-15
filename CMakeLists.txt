@@ -25,6 +25,8 @@ add_library(Agregat-42 STATIC src/Engine.cpp "src/GraphicsManager/GraphicsManage
 set_target_properties( Agregat-42 PROPERTIES CXX_STANDARD 20 )
 
 target_include_directories(Agregat-42 PUBLIC src)
+
+#make it private to disallow users to include raylib to their games but this also makes .h files cannot include raylib.
 target_link_libraries(Agregat-42 PRIVATE raylib)
 target_link_libraries( Agregat-42 PRIVATE spdlog::spdlog )
 
