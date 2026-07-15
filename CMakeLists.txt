@@ -21,11 +21,11 @@ FetchContent_Declare(
     )
 FetchContent_MakeAvailable( spdlog )
 
-add_library(Agregat-42 STATIC src/Engine.cpp)
+add_library(Agregat-42 STATIC src/Engine.cpp "src/GraphicsManager/GraphicsManager.cpp" "src/InputManager/InputManager.cpp")
 set_target_properties( Agregat-42 PROPERTIES CXX_STANDARD 20 )
 
 target_include_directories(Agregat-42 PUBLIC src)
-target_link_libraries(Agregat-42 PUBLIC raylib)
+target_link_libraries(Agregat-42 PRIVATE raylib)
 target_link_libraries( Agregat-42 PRIVATE spdlog::spdlog )
 
 add_executable(BoxOvertop Game/game.cpp)

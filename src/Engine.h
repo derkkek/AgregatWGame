@@ -1,9 +1,23 @@
-class Engine
+#pragma once
+#include "Types.h"
+#include "GraphicsManager/GraphicsManager.h"
+#include "InputManager/InputManager.h"
+
+namespace Agregat
 {
-public:
-	Engine();
-	~Engine();
+	class Engine
+	{
+	public:
+		Engine();
+		~Engine();
 
-private:
+		void Init();
+		void RunGameLoop(const UpdateCallback& callback);
 
-};
+		GraphicsManager graphics;
+		InputManager input;
+	private:
+
+	};
+
+}
