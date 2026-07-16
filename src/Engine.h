@@ -3,6 +3,7 @@
 #include "GraphicsManager/GraphicsManager.h"
 #include "InputManager/InputManager.h"
 #include "SoundManager/SoundManager.h"
+#include "ResourceManager/ResourceManager.h"
 
 namespace Agregat
 {
@@ -19,6 +20,7 @@ namespace Agregat
 		GraphicsManager graphics;
 		InputManager input;
 		SoundManager sound;
+		ResourceManager resource;
 	private:
 
 	};

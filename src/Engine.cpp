@@ -4,7 +4,7 @@
 namespace Agregat
 {
 	Engine::Engine()
-		:graphics(*this), input(*this), sound(*this)
+		:graphics(*this), input(*this), sound(*this), resource(*this)
 	{
 		Init();
 	}

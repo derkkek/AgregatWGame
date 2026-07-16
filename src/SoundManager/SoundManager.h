@@ -14,6 +14,7 @@ namespace Agregat
 
 		void Init();
 		void Shutdown();
+		void Play(const std::string& nameOfTheSound);
 
 		std::unordered_map<std::string, Sound> nameSoundHashMap;
 
