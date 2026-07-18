@@ -1,6 +1,8 @@
 #pragma once
 #include "Types.h"
 #include "raylib.h"
+#include <unordered_map>
+#include <string>
 namespace Agregat
 {
 	class Engine;
@@ -15,14 +17,20 @@ namespace Agregat
 		void Draw();
 		bool ShouldWindowClosed();
 		void Shutdown();
+		std::unordered_map<std::string, Texture2D> nameToTextureHashMap;
 
 	private:
 		Engine& engine;
 		Camera camera;
 		Model model;
-		const int screenWidth = 800;
-		const int screenHeight = 450;
+		Mesh mesh;
+		Vector3 lightPos;
+		const int screenWidth = 1600;
+		const int screenHeight = 900;
 		bool shouldCloseWindow;
+
+		void LoadMeshData();
+
 	};
 
 }
