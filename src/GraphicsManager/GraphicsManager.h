@@ -18,6 +18,7 @@ namespace Agregat
 		bool ShouldWindowClosed();
 		void Shutdown();
 		std::unordered_map<std::string, Texture2D> nameToTextureHashMap;
+		std::unordered_map<std::string, Shader> nameToShaderHashMap;
 
 	private:
 		Engine& engine;

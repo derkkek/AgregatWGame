@@ -26,8 +26,10 @@ namespace Agregat
 		camera.projection = CAMERA_PERSPECTIVE;
 
 		LoadMeshData();
+		engine.resource.LoadShader("shaders/default.vs", "shaders/default.fs", "default");
+		model.materials[0].shader = nameToShaderHashMap["default"];
 
-		lightPos = Vector3{ 0.0f, 1.0f, 0.0f };
+		lightPos = Vector3{ 0.0f, -3.0f, 0.0f };
 
 		DisableCursor();
 		SetTargetFPS(60);               // Set our game to run at 60 frames-per-second
@@ -40,7 +42,14 @@ namespace Agregat
 
 		ClearBackground(RAYWHITE);
 
+		Shader shader = nameToShaderHashMap["default"];
 		//DrawText("Congrats! You created your first window!", 190, 200, 20, LIGHTGRAY);
+		int lightPos = GetShaderLocation(shader, "lightPos");
+		int lightColor = GetShaderLocation(shader, "lightColor");
+
+		Vector3 lightCol = Vector3{ 1,1,1 };
+		SetShaderValue(shader, lightPos, &this->lightPos, SHADER_UNIFORM_VEC3);
+		SetShaderValue(shader, lightColor, &lightCol, SHADER_UNIFORM_VEC3);
 		
 		BeginMode3D(camera);
 		

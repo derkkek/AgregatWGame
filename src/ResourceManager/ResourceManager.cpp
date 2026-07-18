@@ -1,5 +1,6 @@
 #include "ResourceManager.h"
 #include "ResourceManager.h"
+#include "ResourceManager.h"
 #include "../Engine.h"
 #include <raylib.h>
 #include "spdlog/spdlog.h"
@@ -42,6 +43,19 @@ namespace Agregat
 			Texture2D texture = ::LoadTexture(resolvedPath.c_str());
 			engine.graphics.nameToTextureHashMap[name] = texture;
 			spdlog::info("TEXTURE: " + name + " has loaded");
+			return true;
+		}
+		return false;
+	}
+	bool ResourceManager::LoadShader(const std::string& relativePathVertex, const std::string& relativePathFragment, const std::string& name)
+	{
+		const std::string& resolvedPathVertex = ResolvePath(relativePathVertex);
+		const std::string& resolvedPathFragment = ResolvePath(relativePathFragment);
+		if (!relativePathFragment.empty() && !relativePathVertex.empty())
+		{
+			Shader shader = ::LoadShader(resolvedPathVertex.c_str(), resolvedPathFragment.c_str());
+			engine.graphics.nameToShaderHashMap[name] = shader;
+			spdlog::info("SHADER: " + name + " has loaded");
 			return true;
 		}
 		return false;

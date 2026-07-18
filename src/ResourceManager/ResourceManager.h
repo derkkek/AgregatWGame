@@ -16,6 +16,7 @@ namespace Agregat
 
 		bool LoadSound(const std::string& relativePath, const std::string& name);
 		bool LoadTexture(const std::string& relativePath, const std::string& name);
+		bool LoadShader(const std::string& relativePathVertex, const std::string& relativePathFragment, const std::string& name);
 
 		/* Converts interleaved [pos.xyz, normal.xyz, uv.xy] data (8 (stride) floats/vertex) into raylib's SoA Mesh format and uploads it to the GPU.*/
 		Mesh LoadMeshFromInterleavedData(const float* vertexData, int vertexCount, int stride);
