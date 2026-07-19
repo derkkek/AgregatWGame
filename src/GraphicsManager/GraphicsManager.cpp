@@ -30,7 +30,7 @@ namespace Agregat
 		engine.resource.LoadShader("shaders/default.vs", "shaders/default.fs", "default");
 		model.materials[0].shader = nameToShaderHashMap["default"];
 		
-		lightPos = Vector3{ 0.0f, 0.0f, 0.0f };
+		lightPos = Vector3{ 0.0f, 1.0f, 0.0f };
 
 		DisableCursor();
 		
@@ -42,7 +42,8 @@ namespace Agregat
 
 		BeginDrawing();
 
-		ClearBackground(RAYWHITE);
+		ClearBackground(CLITERAL(Color){20,20,20,255});
+		
 
 		Shader shader = nameToShaderHashMap["default"];
 		//DrawText("Congrats! You created your first window!", 190, 200, 20, LIGHTGRAY);
